@@ -23,8 +23,8 @@ namespace ProiectPooGestionareTrenuri
                 Console.Clear();
                 Console.WriteLine("1. Logare");
                 Console.WriteLine("2. Creare cont nou");
-                Console.WriteLine("3. Ieșire");
-                Console.Write("Alegeți o opțiune: ");
+                Console.WriteLine("3. Iesire");
+                Console.Write("Alegeti o optiune: ");
                 string optiune = Console.ReadLine();
 
                 switch (optiune)
@@ -39,7 +39,7 @@ namespace ProiectPooGestionareTrenuri
                         contInchis = true;
                         break;
                     default:
-                        Console.WriteLine("Opțiune invalidă. Încercați din nou.");
+                        Console.WriteLine("Optiune invalida. Incercati din nou.");
                         break;
                 }
             }
@@ -51,7 +51,7 @@ namespace ProiectPooGestionareTrenuri
         static void Logare()
         {
             Console.Clear();
-            Console.Write("Introduceți email-ul: ");
+            Console.Write("Introduceti email-ul: ");
             string email = Console.ReadLine();
             utilizatorCurent = utilizatori.FirstOrDefault(u => u.Email.Equals(email, StringComparison.OrdinalIgnoreCase));
 
@@ -69,7 +69,7 @@ namespace ProiectPooGestionareTrenuri
             }
             else
             {
-                Console.WriteLine("Utilizatorul nu există. Te rugăm să te înregistrezi.");
+                Console.WriteLine("Utilizatorul nu exista. Te rugam să te inregistrezi.");
                 Console.ReadKey();
             }
         }
@@ -77,14 +77,14 @@ namespace ProiectPooGestionareTrenuri
         static void CreareCont()
         {
             Console.Clear();
-            Console.Write("Introduceți numele complet: ");
+            Console.Write("Introduceti numele complet: ");
             string nume = Console.ReadLine();
-            Console.Write("Introduceți email-ul: ");
+            Console.Write("Introduceti email-ul: ");
             string email = Console.ReadLine();
 
             if (utilizatori.Any(u => u.Email.Equals(email, StringComparison.OrdinalIgnoreCase)))
             {
-                Console.WriteLine("Email-ul este deja folosit. Vă rugăm să alegeți altul.");
+                Console.WriteLine("Email-ul este deja folosit. Va rugam sa alegeti altul.");
                 Console.ReadKey();
                 return;
             }
@@ -92,7 +92,7 @@ namespace ProiectPooGestionareTrenuri
             Console.WriteLine("Alegeți tipul de utilizator:");
             Console.WriteLine("1. Administrator");
             Console.WriteLine("2. Pasager");
-            Console.Write("Alegeți opțiunea (1/2): ");
+            Console.Write("Alegeti optiunea (1/2): ");
             string tipOp = Console.ReadLine();
             TipUtilizator tipUtilizator = tipOp == "1" ? TipUtilizator.Administrator : TipUtilizator.Pasager;
 
@@ -111,12 +111,12 @@ namespace ProiectPooGestionareTrenuri
             {
                 Console.Clear();
                 Console.WriteLine("Meniu Pasager:");
-                Console.WriteLine("1. Căutare rute disponibile");
+                Console.WriteLine("1. Cautare rute disponibile");
                 Console.WriteLine("2. Rezervare bilet");
                 Console.WriteLine("3. Anulare rezervare");
-                Console.WriteLine("4. Vizualizare istoric călătorii");
-                Console.WriteLine("5. Ieșire");
-                Console.Write("Alegeți o opțiune: ");
+                Console.WriteLine("4. Vizualizare istoric calatorii");
+                Console.WriteLine("5. Iesire");
+                Console.Write("Alegeti o optiune: ");
                 string optiune = Console.ReadLine();
 
                 switch (optiune)
@@ -137,7 +137,7 @@ namespace ProiectPooGestionareTrenuri
                         iesirePasager = true;
                         break;
                     default:
-                        Console.WriteLine("Opțiune invalidă.");
+                        Console.WriteLine("Optiune invalida.");
                         break;
                 }
             }
@@ -150,9 +150,9 @@ namespace ProiectPooGestionareTrenuri
             {
                 Console.Clear();
                 Console.WriteLine("Meniu Administrator:");
-                Console.WriteLine("1. Adaugare rută nouă");
-                Console.WriteLine("2. Ieșire");
-                Console.Write("Alegeți o opțiune: ");
+                Console.WriteLine("1. Adaugare ruta noua");
+                Console.WriteLine("2. Iesire");
+                Console.Write("Alegeti o optiune: ");
                 string optiune = Console.ReadLine();
 
                 switch (optiune)
@@ -164,7 +164,7 @@ namespace ProiectPooGestionareTrenuri
                         iesireAdministrator = true;
                         break;
                     default:
-                        Console.WriteLine("Opțiune invalidă.");
+                        Console.WriteLine("Optiune invalida.");
                         break;
                 }
             }
@@ -173,21 +173,21 @@ namespace ProiectPooGestionareTrenuri
         static void AdaugareRuta()
         {
             Console.Clear();
-            Console.Write("Introduceți ID-ul rutei: ");
+            Console.Write("Introduceti ID-ul rutei: ");
             string idRuta = Console.ReadLine();
-            Console.Write("Introduceți numele rutei: ");
+            Console.Write("Introduceti numele rutei: ");
             string numeRuta = Console.ReadLine();
 
-            Console.Write("Introduceți numărul trenului: ");
+            Console.Write("Introduceti numarul trenului: ");
             int numarTren = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Selectați tipul trenului:");
+            Console.WriteLine("Selectati tipul trenului:");
             Console.WriteLine("1. Regio");
             Console.WriteLine("2. InterRegio");
             Console.WriteLine("3. Express");
             TipTren tipTren = (TipTren)(int.Parse(Console.ReadLine()) - 1);
 
-            Console.Write("Introduceți capacitatea trenului: ");
+            Console.Write("Introduceti capacitatea trenului: ");
             int capacitate = int.Parse(Console.ReadLine());
 
             Tren tren = new Tren(Guid.NewGuid().ToString(), numarTren, tipTren, capacitate);
@@ -195,34 +195,34 @@ namespace ProiectPooGestionareTrenuri
             Ruta rutaNoua = new Ruta(idRuta, numeRuta, tren);
             rute.Add(rutaNoua);
 
-            Console.WriteLine("Ruta a fost adăugată cu succes!");
+            Console.WriteLine("Ruta a fost adăugata cu succes!");
             Console.ReadKey();
         }
 
         static void CautareRuteDisponibile()
         {
             Console.Clear();
-            Console.WriteLine("Introduceți stația de plecare: ");
+            Console.WriteLine("Introduceti statia de plecare: ");
             string plecare = Console.ReadLine();
-            Console.WriteLine("Introduceți stația de destinație: ");
+            Console.WriteLine("Introduceti statia de destinatie: ");
             string destinatie = Console.ReadLine();
 
             var ruteGasite = rute.Where(r => r.Statii.Any(s => s.NumeStatie.Equals(plecare, StringComparison.OrdinalIgnoreCase)) &&
                                              r.Statii.Any(s => s.NumeStatie.Equals(destinatie, StringComparison.OrdinalIgnoreCase)))
                                   .ToList();
 
-            Console.WriteLine($"Rute disponibile între {plecare} și {destinatie}:");
+            Console.WriteLine($"Rute disponibile intre {plecare} si {destinatie}:");
 
             if (ruteGasite.Any())
             {
                 foreach (var ruta in ruteGasite)
                 {
-                    Console.WriteLine($"- {ruta.NumeRuta} (Durata: {ruta.DurataTotala}, Preț Clasa 1: {ruta.PretClasa1} lei)");
+                    Console.WriteLine($"- {ruta.NumeRuta} (Durata: {ruta.DurataTotala}, Pret Clasa 1: {ruta.PretClasa1} lei)");
                 }
             }
             else
             {
-                Console.WriteLine("Nu există rute disponibile.");
+                Console.WriteLine("Nu exista rute disponibile.");
             }
 
             Console.ReadKey();
@@ -231,7 +231,7 @@ namespace ProiectPooGestionareTrenuri
         static void RezervareBilet()
         {
             Console.Clear();
-            Console.WriteLine("Rezervare bilet nu a fost implementată complet.");
+            Console.WriteLine("Rezervare bilet nu a fost implementata complet.");
             Console.ReadKey();
         }
 
@@ -239,27 +239,27 @@ namespace ProiectPooGestionareTrenuri
         {
             if (utilizatorCurent.IstoricCalatorii.Count == 0)
             {
-                Console.WriteLine("Nu aveți rezervări în istoric.");
+                Console.WriteLine("Nu aveti rezervari in istoric.");
                 return;
             }
 
-            Console.WriteLine("Rezervările dvs.:");
+            Console.WriteLine("Rezervarile dvs.:");
             for (int i = 0; i < utilizatorCurent.IstoricCalatorii.Count; i++)
             {
                 Console.WriteLine($"{i + 1}. {utilizatorCurent.IstoricCalatorii[i]}");
             }
 
-            Console.Write("Alegeți numărul rezervării pe care doriți să o anulați: ");
+            Console.Write("Alegeti numarul rezervarii pe care doriti să o anulati: ");
             if (!int.TryParse(Console.ReadLine(), out int indexRezervare) || indexRezervare < 1 || indexRezervare > utilizatorCurent.IstoricCalatorii.Count)
             {
-                Console.WriteLine("Selecție invalidă.");
+                Console.WriteLine("Selectie invalida.");
                 return;
             }
 
             Calatorie rezervare = utilizatorCurent.IstoricCalatorii[indexRezervare - 1];
             utilizatorCurent.IstoricCalatorii.RemoveAt(indexRezervare - 1);
 
-            Console.WriteLine($"Rezervarea \"{rezervare}\" a fost anulată cu succes.");
+            Console.WriteLine($"Rezervarea \"{rezervare}\" a fost anulata cu succes.");
             SistemFisiere.SalveazaRute(rute);
         }
 
@@ -268,19 +268,19 @@ namespace ProiectPooGestionareTrenuri
         static void VizualizareIstoricCalatorii()
         {
             Console.Clear();
-            Console.WriteLine("Istoric călătorii:");
+            Console.WriteLine("Istoric calatorii:");
 
             if (utilizatorCurent.IstoricCalatorii.Any())
             {
                 foreach (var calatorie in utilizatorCurent.IstoricCalatorii)
                 {
-                    string statusCalatorie = calatorie.Anulata ? "Anulată" : "Confirmată";
+                    string statusCalatorie = calatorie.Anulata ? "Anulata" : "Confirmata";
                     Console.WriteLine($"- {calatorie.Ruta.NumeRuta} ({calatorie.LocuriRezervate} locuri rezervate, {statusCalatorie})");
                 }
             }
             else
             {
-                Console.WriteLine("Nu aveți călătorii în istoric.");
+                Console.WriteLine("Nu aveti calatorii in istaoric.");
             }
 
             Console.ReadKey();
