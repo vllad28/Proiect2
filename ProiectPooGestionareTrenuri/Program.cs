@@ -89,7 +89,7 @@ namespace ProiectPooGestionareTrenuri
                 return;
             }
 
-            Console.WriteLine("Alegeți tipul de utilizator:");
+            Console.WriteLine("Alegeti tipul de utilizator:");
             Console.WriteLine("1. Administrator");
             Console.WriteLine("2. Pasager");
             Console.Write("Alegeti optiunea (1/2): ");
