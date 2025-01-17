@@ -31,11 +31,3 @@ public   class Tren
         Vagoane.Add(vagon);
     }
 }
-PRET:
-namespace ConsoleApp4;
-
-public abstract class Pret
-{
-    public abstract double CalculeazaPret(double pretBaza);
-}
-}
